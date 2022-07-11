@@ -106,4 +106,23 @@ public class AppTest {
         assertEquals(new Node(3, 6), result.get(0));
         assertEquals(new Node(2, 6), result.get(1));
     }
+
+    @Test
+    public void mustDoDiagonalMove() {
+        char[][] data = {
+                {'O', 'O', 'O', 'E', 'O', 'O', 'O', 'O', 'O', 'O'},
+                {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
+                {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
+                {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
+                {'O', 'O', 'O', 'O', 'O', 'O', '0', 'S', 'O', 'O'},
+                {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'}
+        };
+        List<Node> result = App.findShortestPath(data);
+        printPath(App.findShortestPath(data), data);
+        assertEquals(new Node(4, 7), result.get(0));
+        assertEquals(new Node(3, 6), result.get(1));
+        assertEquals(new Node(2, 5), result.get(2));
+        assertEquals(new Node(1, 4), result.get(3));
+        assertEquals(new Node(0, 3), result.get(4));
+    }
 }
